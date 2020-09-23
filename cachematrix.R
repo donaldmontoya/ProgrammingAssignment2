@@ -23,17 +23,6 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-    matrizinv <- x$getmatinv()
-    if(!is.null(matrizinv)) {
-        message("getting cached data")
-        return(matrizinv)
-    }
-    if (det(matrizinv)==0){
-        message("Determinant of the matrix equal to zero, its inverse cannot be calculated")
-    }
-    data <- x$getmat()
-    matrizinv <- solve(data)
-    x$setmatinv(matrizinv)
-    matrizinv
+   
     
 }
