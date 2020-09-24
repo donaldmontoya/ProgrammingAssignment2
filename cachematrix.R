@@ -38,7 +38,7 @@ cacheSolve <- function(x, ...) {
     #Se verifica si se puede calcular la inversa de la matriz con la funcion det()
     if(det(data)==0){
         message("No se puede calcular la inversa de la matrix")
-        return(x$getmat())
+        return(data)
     }
     
     #Se obtiene la matriz invertida
