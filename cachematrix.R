@@ -4,13 +4,18 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
+    # Variable para matriz invertida iniciada a NULL
     matrizinv <- NULL
-    setmat <- function(y) {
+    #Funcion para cambiar matriz
+    setmat <- function(y) { 
         x <<- y
         matrizinv <<- NULL
     }
+    # Funcion para obtener la matrix
     getmat <- function() x
+    #Funcion para cambiar matriz invertida
     setmatinv <- function(inv) matrizinv <<- inv
+    #Funcion para obtener la matriz invertida
     getmatinv <- function() matrizinv
     list(setmat = setmat, getmat = getmat,
          setmatinv = setmatinv,
@@ -26,10 +31,12 @@ cacheSolve <- function(x, ...) {
     matrizinv <- x$getmatinv()
     if(!is.null(matrizinv)) {
         message("getting cached data")
-        return(m)
+        return(matrizinv)
     }
     data <- x$getmat()
-    matrizinv <- mean(data, ...)
+    #Se obtiene la matriz invertida
+    matrizinv <- solve(data)
+    #Se cambia la matriz invertida
     x$setmatinv(matrizinv)
     matrizinv
     
